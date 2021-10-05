@@ -1,0 +1,74 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Games Script UI", "Sentinel")
+local Script = Window:NewTab("Script")
+local ScriptSection = Script:NewSection("Games Script")
+
+ScriptSection:NewButton("Infinite Yield", "Admin Script", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+end)
+
+ScriptSection:NewButton("Dark Hub", "Dark Hub Script", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomAdamYT/DarkHub/master/Init", true))()
+end)
+
+ScriptSection:NewButton("Aimbot", "Aimbot Script", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/cHKVsTg8", true))()
+end)
+
+ScriptSection:NewButton("ESP", "ESP Script", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/ic3w0lf22/Unnamed-ESP/master/UnnamedESP.lua'))()
+end)
+
+ScriptSection:NewButton("Bedwars", "Bedwars VAPE V4", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
+end)
+
+ScriptSection:NewButton("Islands", "ISLANDS OP SCRIPT", function()
+    loadstring(game:HttpGet("http://void-scripts.com/Scripts/islands_new.lua"))()
+end)
+
+ScriptSection:NewLabel("Script Ends Here Thank You For Using My UI")
+
+local Player = Window:NewTab("Players")
+local PlayerSection = Player:NewSection("Players Value")
+PlayerSection:NewSlider("Walk Speed", "Change The Value Of Player Speed", 500, 16, function(v) 
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v
+end)
+
+PlayerSection:NewSlider("Jump Powers", "Change The Value Of Player Jump", 250, 50, function(v) 
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
+end)
+
+PlayerSection:NewButton("Infinite Jump Press (R) To Enable/Disable", "Player Have Infinite Jump", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/HQsQysa8", true))()
+end)
+
+PlayerSection:NewButton("Noclip (E) Enable/Disable", "Player NoClip", function()
+    
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+local runservice = game:GetService("RunService")
+local noclip = false
+
+local msg = Instance.new("Message", player.PlayerGui)
+msg.Text = "Noclip Script By Ghoul Press 'E' To Enable Or Disable And 'T' To Destroy Message"
+
+runservice.Stepped:Connect(function()
+    if noclip then
+        player.Character.Humanoid:ChangeState(11)
+    end
+end)
+
+mouse.KeyDown:Connect(function(key)
+    if key == "t" then
+        msg:Destroy()
+    end
+end)
+
+mouse.KeyDown:Connect(function(key)
+    if key == "e" then
+        noclip = true
+        player.Character.Humanoid:ChangeState(11)
+    end
+end)
+end)
